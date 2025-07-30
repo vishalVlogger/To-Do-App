@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h2>My Tasks</h2>
+
+<div class="actions">
+  <a href="{{ url_for('tasks.add_tasks') }}" class="btn btn-primary">Add New Task</a>
+  <a href="{{ url_for('tasks.clear_all') }}" class="btn btn-danger" onclick="return confirm('Clear all tasks?');">Clear All</a>
+</div>
+
+{% if tasks %}
+  <div class="task-list">
+    {% for task in tasks %}
+      <div class="task-card">
+        <div class="task-header">
+          <h3>{{ task.title }}</h3>
+          <span class="status-badge
+              {% if task.status == 'Pending' %}status-pending
+              {% elif task.status == 'Working' %}status-working
+              {% else %}status-done
+              {% endif %}">
+            {{ task.status }}
+          </span>
+        </div>
+        <div class="task-content">
+          {{ task.content | replace('\n', '<br>') | safe }}
+        </div>
+        <div class="task-footer">
+          <small>Created: {{ task.created_date.strftime('%Y-%m-%d') }}</small>
+          <div class="task-actions">
+            <a href="{{ url_for('tasks.edit_tasks', task_id=task.id) }}" class="btn btn-secondary btn-sm">Edit</a>
+            <a href="{{ url_for('tasks.toggle_tasks', task_id=task.id) }}" class="btn btn-info btn-sm">Toggle Status</a>
+            <a href="{{ url_for('tasks.delete_tasks', task_id=task.id) }}" class="btn btn-danger btn-sm" onclick="return confirm('Delete this task?');">Delete</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <p>No tasks added yet.</p>
+{% endif %}
+{% endblock %}
