@@ -14,6 +14,19 @@ A clean, full-stack To-Do web app built using Flask, SQLite, Jinja2, Flask-WTF, 
 
 📸 Screenshots
 
+1. Login Page
+   <img width="1366" height="607" alt="image" src="https://github.com/user-attachments/assets/979ee1d1-2227-4695-b1e0-5c60f828313b" />
+
+2. Register Page
+   <img width="1350" height="609" alt="image" src="https://github.com/user-attachments/assets/c4856696-d44e-454c-b645-13d5f43aa7b5" />
+
+3. Dashboard Page
+   <img width="1363" height="607" alt="image" src="https://github.com/user-attachments/assets/1900efd1-c097-4ffa-b796-11780c0b7ad7" />
+
+4. Add Task Page
+   <img width="1350" height="608" alt="image" src="https://github.com/user-attachments/assets/a3c05921-7305-40b5-b871-3e6f126c2a98" />
+
+
 📌 Tech Stack
 
 - Python,
